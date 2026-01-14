@@ -56,11 +56,8 @@ So I’m building a strong foundation from scratch.
 
 ### ✔ Optional Paths I’ll Explore 😎
 
-- Flask/Django basics
-- API building
-- Automation scripts
-- Pandas/Numpy basics
-- SQLite & database use
+- 
+
 
 ---
 

@@ -90,6 +90,8 @@ So I’m building a strong foundation from scratch.
 | ...  | More coming 🔥 |
 
 ---
+Learning Project 
+1. Youtibe Manager 
 
 ## 🤝 Contributions & Suggestions
 

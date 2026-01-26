@@ -3,17 +3,25 @@ class Car:
 
     def __init__(self, brand, model):
         self.__brand = brand
-        self.model = model
+        self.__model = model
         Car.total_car += 1
 
     def fullName(self):
-        return f"Brand:{self.__brand}, Model:{self.model}"
+        return f"Brand:{self.__brand}, Model:{self.__model}"
 
     def get_brand(self):
         return self.__brand
 
     def fuel_type(self):
         return "Petrol or Diesel"
+
+    @staticmethod
+    def general_description():
+        return "Cars are means of transport"
+
+    @property
+    def model(self):
+        return self.__model
 
 
 my_car = Car("Toyota", "Corolla")
@@ -23,6 +31,7 @@ my_car = Car("Toyota", "Corolla")
 # my_new_car = Car("Tata", "Safari")
 # print(my_new_car.brand)
 # print(my_new_car.model)
+# my_car.model = "City"
 
 
 class ElectricCar(Car):
@@ -34,12 +43,36 @@ class ElectricCar(Car):
         return "Electric charge"
 
 
-my_tesla = ElectricCar("Tesla", "Model S", "85kWh")
+# my_tesla = ElectricCar("Tesla", "Model S", "85kWh")
+# print(isinstance(my_tesla, Car))
+# print(isinstance(my_tesla, ElectricCar))
 # print(my_tesla.battery_size)
 # print(my_tesla.fullName())
 # print(my_tesla.get_brand())
-print(my_tesla.fuel_type())
+# print(my_tesla.fuel_type())
 
-safari = Car("Tata", "Safari")
-print(safari.fuel_type())
-print(Car.total_car)
+# safari = Car("Tata", "Safari")
+# print(safari.fuel_type())
+# print(Car.total_car)
+
+
+# print(my_car.general_description())
+# print(Car.general_description())
+# print(my_car.model)
+
+class Battery:
+    def battery_info(self):
+        return "This is battery."
+
+class Engine:
+    def engine_info(self):
+        return "This is engine."
+
+class electricCarTwo(Battery, Engine, Car):
+    pass
+
+new_tesla = electricCarTwo("Tesla", "Model S")
+print(new_tesla.battery_info())
+print(new_tesla.engine_info())
+print(new_tesla.model)
+

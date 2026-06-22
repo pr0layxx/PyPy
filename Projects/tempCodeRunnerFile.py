@@ -1,2 +1,2 @@
-me__ ==  "__main__":
-#     main() 
+
+                delete_video(video)

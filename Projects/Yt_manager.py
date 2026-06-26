@@ -1,22 +1,16 @@
 import json
 
-# def load_data():
-#     try:
-#         with open("youtube.txt", "r") as file:
-#             json.load(file)
-#     except FileNotFoundError:
-#         return []
-
 def load_data():
     try:
         with open('youtube.txt', 'r') as file:
-            return json.load(file)
+            test = json.load(file)
+            print(test)
+            print(type(test))
+            return test
     except FileNotFoundError:
         print("File not found")
         return []
-    # except json.JSONDecodeError:
-    #     print("JSON error")
-    #     return []
+
     
     
 def save_data_helper(videos):
@@ -25,8 +19,20 @@ def save_data_helper(videos):
 
 def list_all_videos(videos):
     for index, video in enumerate(videos, start=1):
-        print(f"{index}")
+        print(f"{index}. {video["name"]}, Duration: {video["time"]}")
  
+def update_video(videos):
+     list_all_videos(videos)
+     index= int((input("Index of the video , want to update: ")))
+     if 1 <= index <= len(videos):        
+        name = input("Enter the video name: ")
+        time = input("Enter the video duration: ")
+        videos[index -1 ] = {'name': name, 'time': time}
+        save_data_helper(videos)
+     else:
+        print("Invalid index selected!")
+        
+     
 def add_video(videos):
     name = input("Enter the name: ")
     time = input("Enter the time")
@@ -36,8 +42,6 @@ def add_video(videos):
 
 def main():
     videos = load_data()
-    print(videos)
-    print(type(videos))
     while True:
         print("\n Youtube Manager | choose option.")
         print("1. List all youtube videos")
@@ -54,7 +58,7 @@ def main():
             case '2':
                 add_video(videos)
             case '3':
-                update_video(video)
+                update_video(videos)
             case '4':
                 delete_video(video)
             case '5':

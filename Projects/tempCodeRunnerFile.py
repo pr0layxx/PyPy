@@ -1,2 +1,1 @@
-
-                delete_video(video)
+update_video

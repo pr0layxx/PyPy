@@ -32,7 +32,14 @@ def update_video(videos):
      else:
         print("Invalid index selected!")
         
-     
+def delete_video(videos):
+    list_all_videos(videos) 
+    index = int(input("Enter the video index, want to delete:"))
+    if index >= 1 <= len(videos):
+        del videos[index-1]
+    else:
+        print("Invalid index selected!")
+        
 def add_video(videos):
     name = input("Enter the name: ")
     time = input("Enter the time")
@@ -60,7 +67,7 @@ def main():
             case '3':
                 update_video(videos)
             case '4':
-                delete_video(video)
+                delete_video(videos)
             case '5':
                 break
             case _:
